@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { SignRoute, TodoRoute } from "./auth/AuthRoute";
 import Header from "./pages/Header";
 import Main from "./pages/Main";
 import Signup from "./pages/Signup";
@@ -15,9 +16,18 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" exact={true} element={<Main />}></Route>
-          <Route path="/signup" element={<Signup />}></Route>
-          <Route path="/signin" element={<Signin />}></Route>
-          <Route path="/todo" element={<Todo />}></Route>
+          <Route
+            path="/signup"
+            element={<SignRoute element={<Signup />} />}
+          ></Route>
+          <Route
+            path="/signin"
+            element={<SignRoute element={<Signin />} />}
+          ></Route>
+          <Route
+            path="/todo"
+            element={<TodoRoute element={<Todo />} />}
+          ></Route>
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
       </BrowserRouter>

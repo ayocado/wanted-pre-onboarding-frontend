@@ -1,28 +1,22 @@
-import React, { useState, useRef, useEffect, memo } from "react";
+import { useState, memo } from "react";
 
 const AddForm = memo(({ addTodo }) => {
   const [value, setValue] = useState("");
-  const input = useRef(null);
 
   const onChangeInput = (e) => {
     setValue(e.target.value);
   };
 
-  useEffect(() => {
-    input.current.focus();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addTodo(value);
     setValue("");
-  }, [addTodo]);
+  };
 
   return (
-    <div
-      onSubmit={(e) => {
-        e.preventDefault();
-        addTodo(value);
-      }}
-    >
+    <div onSubmit={handleSubmit}>
       <input
         data-testid="new-todo-input"
-        ref={input}
         value={value}
         onChange={onChangeInput}
         placeholder={`할 일 입력하기 !`}

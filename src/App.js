@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { SignRoute, TodoRoute } from "./auth/AuthRoute";
+import { SignRoute, TodoRoute } from "./component/auth/AuthRoute";
 import Header from "./pages/Header";
 import Main from "./pages/Main";
 import Signup from "./pages/Signup";

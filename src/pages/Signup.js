@@ -3,6 +3,7 @@ import { useInputValidation } from "../utils/useInputValidation";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { signupApi } from "../apis/api";
+import Button from "../component/common/Button";
 
 const Signup = (props) => {
   const navigate = useNavigate();
@@ -47,13 +48,13 @@ const Signup = (props) => {
           onChange={(e) => passwordInput.handleChange(e.target.value)}
         />
         {error && <div style={{ color: "red" }}>{error}</div>}
-        <button
+        <Button
           type="submit"
           data-testid="signup-button"
           disabled={!emailInput.isValid || !passwordInput.isValid}
         >
           회원가입
-        </button>
+        </Button>
       </form>
     </div>
   );

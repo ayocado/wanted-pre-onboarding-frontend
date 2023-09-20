@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useInputValidation } from "../utils/useInputValidation";
 import { useNavigate } from "react-router-dom";
 import { signinApi } from "../apis/api";
+import Button from "../component/common/Button";
 
 const Signin = (props) => {
   const navigate = useNavigate();
@@ -52,13 +53,13 @@ const Signin = (props) => {
           />
         </p>
         {error && <div style={{ color: "red" }}>{error}</div>}
-        <button
+        <Button
           type="submit"
           data-testid="signin-button"
           disabled={!emailInput.isValid || !passwordInput.isValid}
         >
           로그인
-        </button>
+        </Button>
       </form>
     </div>
   );
